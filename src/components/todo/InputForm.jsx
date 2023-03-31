@@ -15,13 +15,17 @@ const InputForm = () => {
     e.preventDefault();
 
     const todoInput = inputRef.current.value;
+
+    if (todoInput.trim() === "") {
+      return;
+    }
+
     dispatch(
       addTodoItem({
         id: uuid,
         task: todoInput,
         completed: false,
         isEditing: false,
-        createdAt: new Date(),
       })
     );
 
